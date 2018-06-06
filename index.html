@@ -298,9 +298,12 @@ Note:
                                 img.addEventListener('load', function() {
                                     var vibrant = new Vibrant(img);
                                     var swatches = vibrant.swatches();
-                                for (var swatch in swatches)
-                                if (swatches.hasOwnProperty(swatch) && swatches[swatch])
-                                console.log(swatch, swatches[swatch].getHex());
+                                for (var swatch in swatches) {
+                                  if (swatches.hasOwnProperty(swatch) && swatches[swatch]){
+                                    console.log(swatch, swatches[swatch].getHex());
+                                  }
+                                }
+                              
                                 $('.btn-default, .btn-primary, .btn, #Button').css('border',`2px solid ${swatches['DarkMuted'].getHex()}`).css('color', `${swatches['DarkMuted'].getHex()}`);
                                 $('.btn-default, .btn-primary, .btn, #Button').css('background-color', 'white')
                                 $('.grid-container').css('background-color', swatches['Vibrant'].getHex());
@@ -339,8 +342,8 @@ Note:
                           
                    
               $(`.grid-container img:nth-child(${backdrops.length})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))').css('-webkit-mask-image','-webkit-gradient(linear, right top, righ bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
-               $(`.grid-container img:nth-child(${backdrops.length -1})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
-              $(`.grid-container img:nth-child(${backdrops.length -2})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
+               $(`.grid-container img:nth-child(${backdrops.length -1})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))').css('-webkit-mask-image','-webkit-gradient(linear, right top, righ bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
+              $(`.grid-container img:nth-child(${backdrops.length -2})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))').css('-webkit-mask-image','-webkit-gradient(linear, right top, righ bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
  
                       //  $("#images").attr('src', backdrops[1]);
                        $("#img2 ").addClass('cover_photo');
