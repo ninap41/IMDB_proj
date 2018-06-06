@@ -152,7 +152,7 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
          margin-top: 56px;
          margin-left: -100px;
         overflow: hidden;
-        background-color: rgb(255, 0,0, .4);
+        /* background-color: rgb(255, 0,0, .4); */
         top: 0;
         left: 0;
          bottom: 0;
@@ -182,7 +182,11 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
         height: 100%;
         z-index: 2;
         opacity: .5;
-        background-color:pink;
+        -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 0)), to(rgb(0, 0,0, 1)));
+        -moz-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 0)), to(rgb(0, 0,0, 1)));
+         mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 0)), to(rgb(0, 0,0, 1)));
+
+        /* background-color:pink; */
       }
 
  
