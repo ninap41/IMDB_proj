@@ -167,7 +167,10 @@
             }
            
       
-        
+            function vidBreak(vid){
+                  console.log('display')
+                    $("#trailer").animate({ top: '0', left:'0'  })    
+                }
              $(document).ready(function() {
               $('.btn-primary').hide();
                     onInitHide();
@@ -176,7 +179,9 @@
                     $.when(movieRand()).done(function() {
                       setTimeout(dynamicDisplay(), 5000);
                     });
+                   
                 });
+                
                      function ShuffleMovieList(){
                       for (var i = randFavs.length - 1; i > 0; i--) {
                           var j = Math.floor(Math.random() * (i + 1));
@@ -186,7 +191,7 @@
                       }
                 }
          /* Start Favorite generator */
-     
+         
              
                function movieRand(){
                 movie_id_choice = randFavs[index];
@@ -210,7 +215,8 @@
                         default_choice = randFavs[index+1];
                         console.log(`before index:${index} ${randFavs[index]}`)
                         index+=1;
-                        console.log(`after index:${index} ${randFavs[index]}`)
+                        console.log(`after index:${index} ${randFavs[index]}`);
+                        
                  }); 
                 
              };
@@ -381,17 +387,30 @@
                             $('.display-4 div:nth-child(2)').show();
                               $('#trailer').css('overflow', 'scroll');
                               $('#trailer').css('min-height', '25em');
-                              $('#trailer').css('mask-image','none')
-                            $('#trailer').append(`<iframe src="https://www.youtube.com/embed/${vid.key}" frameborder="0" allow="autoplay; encrypted-media" class="shadow"allowfullscreen></iframe>`);
-                              
+                              $('#trailer').css('mask-image','none');
+                            $('#trailer').append(`
+                            <iframe id="videos" src="https://www.youtube.com/embed/${vid.key}?autohide=1&color=white&iv_load_policy=3&rel=0&showinfo=0&showsearch=0" width="560" height="315" frameborder="0" allowfullscreen=""></iframe>
+                            `);
+                            //take iframe out and have the attr source be updated, so the event click can work. JUNE5th
+
+                                   var video = document.getElementById("trailer");
+                    video.addEventListener("click", function(){
+                      vidBreak(video);
+                      });
+                     
+                     
                           }
-                  }); 
-             
-                  
+                          
+                          
+                  });   
+            
+  
            } 
  
  
- 
+              //  $("trailer").animate({ top: '0', left:'0' , right: '0', bottom: '0', })
+
+              
                function callAPI_crew(choice) {
                  $.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=5d2b5802bacb09fa686512f84f6c8ca0&`, function(crew_data) {
                   $('.crew').html('');
