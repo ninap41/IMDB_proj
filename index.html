@@ -1,13 +1,4 @@
-<!--
-Instructions:
-	https://www.themoviedb.org/documentation/api
-	- Using "THE MOVIE DB" (API above) to fetch data, create a descriptive page about the movie “Guardians of the Galaxy” in an appropriate layout. Select 5 to 10 properties of the API response to display.
-	- Bonus: Style the page so it is elegant
 
-Note:
-	- You are allowed to use native Javascript as well as Jquery
-
- -->
 
 
  <!DOCTYPE html><html>
@@ -26,9 +17,7 @@ Note:
        <title>ex11</title>
 
    <style>
-
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Raleway');
-
 .navbar-brand {
   font-family: 'Amatic SC', cursive;
   background-color: rgb(0, 0,0, 0)!important;
@@ -37,16 +26,10 @@ Note:
   position: relative;
    margin:-30px 0px 0px 0px;
  text-shadow: 3px 1px 2px rgba(146, 150, 150, 0.77);  color: rgb(255, 255, 255) !important; 
-
-
 } 
-
 /* .navbar-nav, .btn-default, .navbar {  
   background-color: rgb(0, 0,0, 0)!important;
-
 } */
-
-
  
    </style>
    </head>
@@ -153,7 +136,6 @@ Note:
                  var movie_id = '';
                  var no_review_path = backdrops[1]
                  
-
             function onInitHide() {
               $(' #Button, .grid-container img,.poster-and-info,.btn-primary,.reviews-and-trailer').hide();
               $('#hide-overflow').css('min-height', '100em');
@@ -164,16 +146,11 @@ Note:
              $(' .grid-container img').fadeIn(3000);
            
              $('.navbar-brand').delay(4000).fadeOut();
-
             }
-
             function dynamicDisplay() {
               $('.poster-and-info,.reviews-and-trailer ').delay(3500).fadeIn(2000);
               $('.btn-primary').delay(5500).slideDown();
             };
-
-
-
             function animateOut() {
               pause = true;
               $('.btn-primary').fadeOut(1000);
@@ -186,12 +163,10 @@ Note:
               
               });
                  
-
               
             }
            
       
-
         
              $(document).ready(function() {
               $('.btn-primary').hide();
@@ -202,7 +177,6 @@ Note:
                       setTimeout(dynamicDisplay(), 5000);
                     });
                 });
-
                      function ShuffleMovieList(){
                       for (var i = randFavs.length - 1; i > 0; i--) {
                           var j = Math.floor(Math.random() * (i + 1));
@@ -211,10 +185,8 @@ Note:
                           randFavs[j] = temp;
                       }
                 }
-
          /* Start Favorite generator */
      
-
              
                function movieRand(){
                 movie_id_choice = randFavs[index];
@@ -317,7 +289,6 @@ Note:
                                           linear-gradient(0deg,   rgba(0,0,0,0), rgba(0,0,0,0) 100%) `
                                       /* Results into: Vibrant #7a4426  Muted #7b9eae DarkVibrant #348945 DarkMuted #141414 LightVibrant #f3ccb4
                                       */
-
                                      
                                 });
                                 
@@ -337,7 +308,6 @@ Note:
                             }
                             if(backdrops.length <=4){
                               $(`.grid-container img:nth-child(1)`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))').css('-webkit-mask-image','-webkit-gradient(linear, right top, righ bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
-
                             }
                           
                    
@@ -356,15 +326,11 @@ Note:
                  $.get(`https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=5d2b5802bacb09fa686512f84f6c8ca0&`, function(reviews_data) {
                    $('#reviews').html('');
                    $('#reviews').removeClass('mask-image');
-
                           for (var i = 0; i < reviews_data.results.length; i++){
                             if(reviews_data.results.length > 0){
-
                               $('#reviews').css('overflow', 'scroll');
                               $('#reviews').addClass('mask-image');
                               $('.display-4').show();
-
-
                               $('#reviews').append(`
                               <div class="card col">
                               <div class="card-title"><b>${reviews_data.results[i].author}</b></div>
@@ -382,7 +348,6 @@ Note:
                             if (back === null){
                               var back = posters[1];
                               $('.display-4').hide();
-
                               $('#reviews').append(`
                               <div class="card col no-reviews-col">
                               
@@ -391,7 +356,6 @@ Note:
                                 </div>`);
                                $('#reviews').css('overflow', 'hidden');
                               
-
                             }
                             $('.display-4').hide();
                             $('#reviews').append(`
@@ -401,17 +365,14 @@ Note:
                               <img src="${back}" class="reviews-img-content">
                                 </div>`);
                                 $('#reviews').css('min-height', '20em');
-
                                $('#reviews').css('overflow', 'visible');
                           }
                  }); 
            } 
  
-
            function callAPI_videos(choice) {
                  $.get(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=5d2b5802bacb09fa686512f84f6c8ca0&`, function(videos_data) {
                  $('#trailer').html('');
-
                  var vid = videos_data.results[0];
                           if(videos_data.results.length === 0 || videos_data === null  || videos_data.results === null){
                             $('#trailer').html('');
@@ -422,13 +383,10 @@ Note:
                               $('#trailer').css('min-height', '25em');
                               $('#trailer').css('mask-image','none')
                             $('#trailer').append(`<iframe src="https://www.youtube.com/embed/${vid.key}" frameborder="0" allow="autoplay; encrypted-media" class="shadow"allowfullscreen></iframe>`);
-
-
                               
                           }
                   }); 
              
-
                   
            } 
  
@@ -454,7 +412,6 @@ Note:
            
    
   
-
            
          
          </script>
