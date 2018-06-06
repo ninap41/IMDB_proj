@@ -181,7 +181,7 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
 
        #reviews, #trailer {
       padding-top:1em;
-       max-height: 25em;
+       max-height: 23em;
       border:none;
          border-style:none;
        border-radius: 5px;
@@ -199,8 +199,7 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
 .no-reviews-col {
   position: relative;
   border: none !important;
-
-         border-style:none;
+  border-style:none;
   box-shadow: none !important;
   background-color: rgba(0,0,0, 0) !important;;
   overflow: hidden;
