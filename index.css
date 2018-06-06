@@ -3,7 +3,6 @@
 
 .navbar-nav,  .navbar {  
   background-color: rgb(0, 0,0, 0)!important;
-
 }
 
 
@@ -43,7 +42,8 @@
 
      
      .display-3, .display-4{
-       color:black;
+       /* color:black; */
+       color:white;
        font-family: 'Amatic SC', cursive;
 
      }
@@ -188,6 +188,7 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
      }
      #reviews .card-title {
       padding-top:1em;
+     
    
 
      }
@@ -287,6 +288,7 @@ body {
 
 .navbar-brand, .title{
   display:none;
+  
  
 } 
  
