@@ -1,32 +1,12 @@
-.navbar-brand {
-  font-family: 'Amatic SC', cursive;
-  background-color: rgb(0, 0,0, 0)!important;
-  font-size: 6.5em;
-  z-index:100;
-  position: relative;
-   margin:-30px -10px 0px 0px;
- text-shadow: 3px 1px 2px rgba(146, 150, 150, 0.77);  color: rgb(255, 255, 255) !important; 
 
 
-} 
 
-.navbar-nav, .btn-default, .navbar {  
+.navbar-nav,  .navbar {  
   background-color: rgb(0, 0,0, 0)!important;
 
 }
 
 
-.btn-primary {
-position: absolute;
-top:2;
-left:0;
-margin-left:40em;
-  font-family: 'Raleway', sans-serif;
-  background-color: rgba(110, 110, 110, 0.4);
-  border-radius:5px;
-  border: 1px solid white;
-
-}
 .card div:nth-child(2){
     background-color: rgb(0, 0,0, 0);
 }
@@ -37,15 +17,15 @@ margin-left:40em;
   word-break: keep-all;
 }
   #hide-overflow {
-   overflow: hidden;
+   /* overflow: hidden; */
    position:relative;
    z-index: 0;
-   min-height: 100em;
+   /* min-height: 100em; */
  }
 
   .container {
     margin:0px auto;
-    padding: .5em;
+    /* padding: .5em; */
     overflow:hidden;
 
 
@@ -112,6 +92,8 @@ margin-left:40em;
  
      .btn-default {
          z-index: 1;
+           background-color: rgb(0, 0,0, 0)!important;
+
      }
      .border-left {
          text-align: center;
@@ -149,20 +131,19 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
       .grid-container {
         position: absolute;
         /* background-color: black; */
-         margin-top: 56px;
+         margin-top: 60px;
          margin-left: -100px;
         overflow: hidden;
-        /* background-color: rgb(255, 0,0, .4); */
         top: 0;
         left: 0;
          bottom: 0;
          opacity: .8;
         width: 170%;
-        max-height: 75em;
-        /* height: 100%; */
+        /* max-height: 75em; */
+        height: 80%;
          -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
           -moz-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
-           mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+           mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0))) ;
 
       }
       .grid-container img {
@@ -171,6 +152,7 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
         /* position: relative; */
         margin-left: 0px ;
         margin-top: 0px;
+       
         /* padding-bottom: 3em; */
        float:left;
       opacity:.95;
@@ -181,9 +163,8 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
         width: 100%;
         height: 100%;
         z-index: 2;
-        opacity: .5;
-        
-        /* background-color:pink; */
+        opacity: .2  
+
       }
 
  
@@ -198,7 +179,8 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
        #reviews, #trailer {
       padding-top:1em;
        max-height: 25em;
-   
+      border:none;
+         border-style:none;
        border-radius: 5px;
        overflow: auto;
 
@@ -210,7 +192,9 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
      }
 .no-reviews-col {
   position: relative;
-  border: none !important;;
+  border: none !important;
+
+         border-style:none;
   box-shadow: none !important;
   background-color: rgba(0,0,0, 0) !important;;
   overflow: hidden;
@@ -230,8 +214,13 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
  #trailer {
    vertical-align:top;
  }
- footer {
+ footer, .white-footer-overlay {
    height: 0px;
+      background-color: white;
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    -moz-mask-image:-webkit-gradient(linear,left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    mask-image:-webkit-gradient(linear,  left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0))) !important;
+
  }
 
 
@@ -267,18 +256,72 @@ box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
 /*   ************                       ************
       ************  ANIMATIONS  STYLE   ************
       ************                      ************ */
-
-      .vidBreak {
-        padding: 5em;
-        margin:1em -100%; /* old browsers fallback */
-        margin:1em calc(50% - 50vw);
-        background-color:rgba(255,0,255,0.5)
-      }
 .offset-before {
 
 }
 
 
 .offset-after {
+
+}
+
+@media screen and (max-width: 599px) {
+ .no-reviews-title {
+  /* line-height: 6px; */
+   color: white;
+   font-size: 1em;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin-bottom: -16px;
+   padding-left: 0em;
+   
+
+}
+body {
+  background-color: rgb(0, 0,0, 0);
+}
+
+.navbar-brand, .title{
+  display:none;
+ 
+} 
+
+.grid-container, .container-manual, #grid-container-overlay {
+      -webkit-mask-image:-webkit-gradient(linear, left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    -moz-mask-image:-webkit-gradient(linear,left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    mask-image:-webkit-gradient(linear,  left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+}
+.grid-container {
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+          -moz-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+           mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0))) !important;
+}
+ 
+
+
+}
+
+@media screen and (min-width: 600px) {
+
+
+.btn-primary {
+position: absolute;
+padding-top: 0px;
+  font-family: 'Raleway', sans-serif;
+  background-color: rgba(110, 110, 110, 0.4);
+  border-radius:5px;
+  border: 1px solid white;
+  background-color:  rgb(0, 0,0, 0) !important;
+
+}
+
+
+.navbar {
+  padding-left: 1em;
+}
+
+
 
 }
