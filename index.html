@@ -26,11 +26,11 @@
 font-family: 'Amatic SC', cursive;
 background-color: rgb(0, 0,0, 0)!important;
 font-size: 6.5em;
-color:white !important;;
+color:white !important;
 z-index:100;
 position: relative;
 margin:-30px 0px 0px 0px;
-text-shadow: 3px 1px 2px rgba(99, 99, 99, 0.77) ; 
+text-shadow: 3px 1px 2px rgba(99, 99, 99, 0.77) !important ; 
 } 
 @media screen and (max-width: 599px) {
 
@@ -121,7 +121,7 @@ background-color:  rgba(255, 0, 0, 0)!important;
 
          <div class="row reviews-and-trailer">
            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 " > <br>
-                 <h1 class="display-3">Reviews</h1>
+                 <h1 class="display-4">Reviews</h1>
                  <div class='no-min-height' id="reviews"></div>
            </div>
            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6"> <br> 
@@ -155,8 +155,9 @@ background-color:  rgba(255, 0, 0, 0)!important;
            $('.navbar-brand').css('font-size', '12em');
            $('.navbar-brand').css('margin-top', '1em');
            // $('.container').css('display', 'hidden');
+           $(' .grid-container img').fadeIn(3000);
+
           $('.navbar').animate({ marginLeft: "10em"}, 2000);
-          $(' .grid-container img').fadeIn(3000);
         
           $('.navbar-brand').delay(4000).fadeOut();
          }
@@ -170,7 +171,7 @@ background-color:  rgba(255, 0, 0, 0)!important;
            var delay = $('.poster-and-info ').slideUp(1000);
            var delay2 = $('.reviews-and-trailer').slideUp(3000);
               $.when(delay2).done(function() {  
-                 setTimeout(movieRand(), 1000);
+                 setTimeout(movieRand(), 1500);
                  $('.poster-and-info,.reviews-and-trailer ').fadeIn(3000);
                  $('.btn-primary').delay(3700).slideDown();
            
@@ -349,7 +350,7 @@ background-color:  rgba(255, 0, 0, 0)!important;
                          if(reviews_data.results.length > 0){
                            $('#reviews').css('overflow', 'scroll');
                            $('#reviews').addClass('mask-image');
-                           $('.display-3').show();
+                           $('.display-4').show();
                            $('#reviews').append(`
                            <div class="card col">
                            <div class="card-title"><b>${reviews_data.results[i].author}</b></div>
