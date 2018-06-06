@@ -22,28 +22,28 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Raleway');
-.navbar-brand {
-font-family: 'Amatic SC', cursive;
-background-color: rgb(0, 0,0, 0)!important;
-font-size: 7em;
-color:white !important;
-z-index:100;
-position: relative;
-margin:-30px 0px 0px 0px;
-text-shadow: 3px 1px 2px rgba(99, 99, 99, 0.77) !important ; 
-} 
-@media screen and (max-width: 599px) {
 
+    .navbar-brand {
+        font-family: 'Amatic SC', cursive;
+        background-color: rgb(0, 0,0, 0)!important;
+        font-size: 7em;
+        color:white !important;
+        z-index:100;
+        position: relative;
+        margin:-30px 0px 0px 0px;
+        text-shadow: 3px 1px 2px rgba(99, 99, 99, 0.77) !important ; 
+    } 
+    @media screen and (max-width: 599px) {
 
-.navbar-brand {
-  display:none;
+        .navbar-brand {
+          display:none;
+        } 
 
-} 
-
-}
-.btn-default, .btn-primary {  
-background-color:  rgba(255, 0, 0, 0)!important;
-}  
+    }
+    
+      .btn-default, .btn-primary {  
+        background-color:  rgba(255, 0, 0, 0)!important;
+      }  
 </style>
 </head>
 <body>
@@ -154,12 +154,9 @@ background-color:  rgba(255, 0, 0, 0)!important;
            $('#hide-overflow').css('min-height','100em');
            $('.navbar-brand').css('font-size', '12em');
            $('.navbar-brand').css('margin-top', '1.2em');
-           // $('.container').css('display', 'hidden');
            $(' .grid-container img').fadeIn(3000);
-
           $('.navbar').animate({ marginLeft: "10em"}, 2000);
-        
-          $('.navbar-brand').delay(3000).fadeOut(3000);
+           $('.navbar-brand').delay(3000).fadeOut(3000);
          }
          function dynamicDisplay() {
            $('.poster-and-info,.reviews-and-trailer ').delay(5700).fadeIn(2000);
