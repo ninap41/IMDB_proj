@@ -1,0 +1,276 @@
+.navbar-brand {
+  font-family: 'Amatic SC', cursive;
+  background-color: rgb(0, 0,0, 0)!important;
+  font-size: 6.5em;
+  z-index:100;
+  position: relative;
+   margin:-30px -10px 0px 0px;
+ text-shadow: 3px 1px 2px rgba(146, 150, 150, 0.77);  color: rgb(255, 255, 255) !important; 
+
+
+} 
+
+.navbar-nav, .btn-default, .navbar {  
+  background-color: rgb(0, 0,0, 0)!important;
+
+}
+
+
+.btn-primary {
+position: absolute;
+top:2;
+left:0;
+margin-left:40em;
+  font-family: 'Raleway', sans-serif;
+  background-color: rgba(110, 110, 110, 0.4);
+  border-radius:5px;
+  border: 1px solid white;
+
+}
+.card div:nth-child(2){
+    background-color: rgb(0, 0,0, 0);
+}
+
+.card {
+  font-family: 'Raleway', sans-serif;
+  padding: 0em 1em 1em 1em;  
+  word-break: keep-all;
+}
+  #hide-overflow {
+   overflow: hidden;
+   position:relative;
+   z-index: 0;
+   min-height: 100em;
+ }
+
+  .container {
+    margin:0px auto;
+    padding: .5em;
+    overflow:hidden;
+
+
+  }
+  
+     .container-manual {
+       margin-top: 169px;
+         height:100%;
+         background-color: rgba(0, 0, 0, 0);
+         min-width: 10em;
+          overflow:hidden;
+   
+     }
+
+     
+     .display-3, .display-4{
+       color:black;
+       font-family: 'Amatic SC', cursive;
+
+     }
+ 
+     .above {
+         z-index:3;
+     }
+     .col-3 {
+       word-break: keep-all;
+     }
+ 
+     .title {
+         padding-top: 10px;
+         text-align: center;
+     } 
+ 
+     .release {
+         padding-bottom: 10px;
+           text-align: center;
+     }
+ 
+     .vote {
+       z-index:4;
+       position: relative;
+       color:green;
+       font-size: 4em;
+     }
+ 
+   
+     .col-sm-6, .col-md-6, .col-xs-6, .col-md-12 {
+         padding-top: 0px;
+         margin: 0px 0px;
+
+
+     }
+   
+ 
+     /* .card hr {
+         margin-top: 0px;
+     } */
+     .card-col {
+        min-height: 25em;
+       
+     }
+
+ 
+ 
+     .btn-default {
+         z-index: 1;
+     }
+     .border-left {
+         text-align: center;
+         border-left: 3px solid grey;
+     }
+  
+  
+ 
+     .hr {
+         padding-top:0px;
+     }
+
+  
+
+     iframe {
+        width: 100%    !important;
+        min-height: 20em;
+        height: auto   !important;
+        -webkit-box-shadow: 1px 10px 6px -2px #777;
+       -moz-box-shadow: 1px 10px 6px -2px #777;
+        box-shadow: 1px 10px 6px -2px #777;
+
+
+      }
+
+      #img {
+        padding:0px 0px 0px 0px;
+        margin: 0px -10px 10px -10px;
+        width: 103%;
+        -webkit-box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
+-moz-box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
+box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
+
+      }
+      .grid-container {
+        position: absolute;
+        /* background-color: black; */
+         margin-top: 56px;
+         margin-left: -100px;
+        overflow: hidden;
+        background-color: rgb(255, 0,0, .4);
+        top: 0;
+        left: 0;
+         bottom: 0;
+         opacity: .8;
+        width: 170%;
+        max-height: 75em;
+        /* height: 100%; */
+         -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+          -moz-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+           mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+
+      }
+      .grid-container img {
+        min-width: 40em;
+        vertical-align:top;
+        /* position: relative; */
+        margin-left: 0px ;
+        margin-top: 0px;
+        /* padding-bottom: 3em; */
+       float:left;
+      opacity:.95;
+
+      }
+      #grid-container-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        opacity: .5;
+        background-color:pink;
+      }
+
+ 
+      .reviews-img-content {
+      width: 600px;
+        margin: 0px auto;
+       vertical-align: bottom;
+       margin:0px auto;
+      }
+      
+
+       #reviews, #trailer {
+      padding-top:1em;
+       max-height: 25em;
+   
+       border-radius: 5px;
+       overflow: auto;
+
+     }
+     #reviews .card-title {
+      padding-top:1em;
+   
+
+     }
+.no-reviews-col {
+  position: relative;
+  border: none !important;;
+  box-shadow: none !important;
+  background-color: rgba(0,0,0, 0) !important;;
+  overflow: hidden;
+}
+.no-reviews-title {
+  /* line-height: 6px; */
+   color: white;
+   font-size: 4.5em;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin-bottom: -16px;
+   padding-left: .6em;
+
+}
+ #trailer {
+   vertical-align:top;
+ }
+ footer {
+   height: 0px;
+ }
+
+
+ .shadow {
+  -webkit-box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
+-moz-box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
+box-shadow: 3px 7px 21px -8px rgba(92,92,92,1);
+ }
+ .mask-image {
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+-moz-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+  mask-image:-webkit-gradient(linear, left top, left bottom, from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+
+ }
+ .mask-image-top {
+   background-color: white;
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    -moz-mask-image:-webkit-gradient(linear,left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    mask-image:-webkit-gradient(linear,  left top, left bottom,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+
+ }
+ .mask-image-right {
+   background-color: white;
+    -webkit-mask-image:-webkit-gradient(linear, right, left,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    -moz-mask-image:-webkit-gradient(linear, right, left,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+    mask-image:-webkit-gradient(linear,   right, left,  from(rgb(0, 0,0, 1)), to(rgb(0, 0,0, 0)));
+
+ }
+ .no-min-height {
+   min-height: none !important;
+  
+ }
+/*   ************                       ************
+      ************  ANIMATIONS  STYLE   ************
+      ************                      ************ */
+.offset-before {
+
+}
+
+
+.offset-after {
+
+}

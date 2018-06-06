@@ -1,0 +1,462 @@
+<!--
+Instructions:
+	https://www.themoviedb.org/documentation/api
+	- Using "THE MOVIE DB" (API above) to fetch data, create a descriptive page about the movie “Guardians of the Galaxy” in an appropriate layout. Select 5 to 10 properties of the API response to display.
+	- Bonus: Style the page so it is elegant
+
+Note:
+	- You are allowed to use native Javascript as well as Jquery
+
+ -->
+
+
+ <!DOCTYPE html><html>
+       
+     <head>
+
+       <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'> </script>
+       <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+       <link rel="stylesheet" href="index.css">
+        <script src="vibrant.js/dist/Vibrant.min.js"></script>
+
+       <!-- <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+       <title>ex11</title>
+
+   <style>
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Raleway');
+
+.navbar-brand {
+  font-family: 'Amatic SC', cursive;
+  background-color: rgb(0, 0,0, 0)!important;
+  font-size: 6.5em;
+  z-index:100;
+  position: relative;
+   margin:-30px 0px 0px 0px;
+ text-shadow: 3px 1px 2px rgba(146, 150, 150, 0.77);  color: rgb(255, 255, 255) !important; 
+
+
+} 
+
+/* .navbar-nav, .btn-default, .navbar {  
+  background-color: rgb(0, 0,0, 0)!important;
+
+} */
+
+
+ 
+   </style>
+   </head>
+   <body>
+     <div class="overlay-all-content"></div>
+<div id="hide-overflow">
+
+
+<!--  ************       ************
+      ************   NAV  ************
+      ************        ************ -->
+
+
+     <nav class="navbar" >
+    <a class="navbar-brand" style='z-index: 100'  >Movie Api:<BR> &#32; &#32; Favorites</a> 
+    </nav>
+    <button class="btn-default btn-primary" onclick="animateOut();" id="button">Random Favorite Movie</button>
+
+
+<!--  ************                      ************
+      ************ Containers and Info  ************
+      ************                      ************ -->
+
+<div class="container">
+
+<div class="footer-white-overlay"></div> <!-- OVERLAY BOTTOM WHITE BOX-->
+ <div class="container-manual">  <!--CENTER PIECE CONTAINER - PUSHED FROM TOP -->
+
+      <div class="grid-container">  <!--IMAGE GRID ** target children ** oninit -->
+        <div id="grid-container-overlay"></div> <!-- OVERLAY  *** should be first to FADE into NEXT COLOR-->
+      </div>
+
+  <!--  ************                      ************
+      ************   API CONTENT BEGIN  ************
+      ************                      ************ -->
+   
+          <div class="col-sm-12 poster-and-info"> <!-- poster and info-->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12  col-md-12 col-lg-6">
+                        <img id="img">
+                    </div>
+                    <div class="col-xs-12 col-sm-12  col-md-12 col-lg-6 card">
+                             <div class="row">
+                                  <div class="col-sm">
+                                      <h1 class="title card-title"></h1>
+                                      <h2 class="release"></h2>
+                                  </div>
+                                  <div class="col-sm border-left card-footer text-muted">
+                                      <div class="rating"></div>
+                                      <div class="runtime"></div>
+                                  </div>
+                            </div>
+                       <hr class="hr">
+                       <span class="genres"></span><br>
+                            <div class="row">
+                                  <div class="col-7">
+                                      <h3 class="tagline"></h3><BR>
+                                      <p class="card-text overview"></p>
+                                  </div>
+                                    <div class="col-5"> 
+                                      <b>Director:</b><p class="director_text text-muted"></p>      
+                                      <b>Producer: </b><p class="producer_text text-muted"></p>                     
+                                      <b>Actors:</b><p class="actors"></p>
+                                    </div>      
+                            </div>  
+                      </div>  
+               </div>  
+         </div>  <!-- poster and info ROW END-->
+           
+<!--  ************                      ************
+      ************   REVIEWS AND VIDEO  ************
+      ************                      ************ -->
+
+
+            <div class="row reviews-and-trailer">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 " > <br>
+                    <h1 class="display-4">Reviews</h1>
+                    <div class='no-min-height' id="reviews"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6"> <br> 
+                  <div id="trailer"></div>
+              </div>
+            </div>   
+
+        </div> <!-- END CENTER -->
+    </div> <!-- END container -->
+</div> <!-- END hide overflow -->
+
+
+  <footer>
+         <script type="text/javascript">
+           randFavs = [ '10913','27554','41003', '135579','4638','343','9741','270303','401104','32395','381069','425591','417678', '2239','84201','111969','64678','16614','2652','10012','118677','14256','396940','16725','51462','13990','13973','2324','1412','18190','15869','17906','17113','46119','28410','16619','15','14','243','641','308369','78571','773','401', '9270','9451','747','170','786','9867','1546','9786','18415','9344','22538','59967','141','7345','38','7859','7326','627','489','77','207','122','766','71859','169813','745','84892','19913','49020','55347','10707','1548','63','2666','1272','13573','9685','13919','1550','13193','8669', '12281', '17473'
+];          
+          
+           //'135579','4638','343','459137','515150','9741','270303','401104','32395','381069','425591','417678', '2239','84201','111969','64678','16614','2652','10012','118677','14256','396940','16725','51462','13990','13973','2324','1412','18190','15869','17906','17113','46119','28410','16619','15','14','243','641','308369','78571','773','401', '9270','9451','747','170','786','9867','1546','9786','18415','9344','22538','59967','141','7345','38','7859','7326','627','489','77','207','122','766','71859','169813','745','84892','19913','49020','55347','10707','1548','63','2666','1272','13573','9685','13919','1550','13193','8669', '12281', '17473'
+          var default_choice = ''
+           var backdrops = [];
+           var pause = false;
+           index = 0;
+                 var reviews = [];
+                 var external_poster_data;
+                 var posters = [];
+                 var poster_path;
+                 var movie_id = '';
+                 var no_review_path = backdrops[1]
+                 
+
+            function onInitHide() {
+              $(' #Button, .grid-container img,.poster-and-info,.btn-primary,.reviews-and-trailer').hide();
+              $('#hide-overflow').css('min-height', '100em');
+              $('.navbar-brand').css('font-size', '12em');
+              $('.navbar-brand').css('margin-top', '2em');
+              // $('.container').css('display', 'hidden');
+             $('.navbar').animate({ marginLeft: "10em"}, 2000);
+             $(' .grid-container img').fadeIn(3000);
+           
+             $('.navbar-brand').delay(4000).fadeOut();
+
+            }
+
+            function dynamicDisplay() {
+              $('.poster-and-info,.reviews-and-trailer ').delay(3500).fadeIn(2000);
+              $('.btn-primary').delay(5500).slideDown();
+            };
+
+
+
+            function animateOut() {
+              pause = true;
+              $('.btn-primary').fadeOut(1000);
+              var delay = $('.poster-and-info ').slideUp(1000);
+              var delay2 = $('.reviews-and-trailer').slideUp(3000);
+                 $.when(delay2).done(function() {  
+                    setTimeout(movieRand(), 1000);
+                    $('.poster-and-info,.reviews-and-trailer ').fadeIn(3000);
+                    $('.btn-primary').delay(3700).slideDown();
+              
+              });
+                 
+
+              
+            }
+           
+      
+
+        
+             $(document).ready(function() {
+              $('.btn-primary').hide();
+                    onInitHide();
+                    ShuffleMovieList();
+                    movie_id_choice = randFavs[index];
+                    $.when(movieRand()).done(function() {
+                      setTimeout(dynamicDisplay(), 5000);
+                    });
+                });
+
+                     function ShuffleMovieList(){
+                      for (var i = randFavs.length - 1; i > 0; i--) {
+                          var j = Math.floor(Math.random() * (i + 1));
+                          var temp = randFavs[i];
+                          randFavs[i] = randFavs[j];
+                          randFavs[j] = temp;
+                      }
+                }
+
+         /* Start Favorite generator */
+     
+
+             
+               function movieRand(){
+                movie_id_choice = randFavs[index];
+                 if(randFavs[index] === randFavs[randFavs.length - 1]) {
+                  index = 0;
+                  default_choice = randFavs[index]; //'17473';//'1548'
+                  console.log('went through all movies');
+                 } 
+                 backdrops = [];
+                 posters = [];
+                       document.getElementById("button").disabled = true;
+                 $.when(callAPI_data(movie_id_choice)).done(function() {
+                        callAPI_images(movie_id_choice);
+                        callAPI_crew(movie_id_choice);
+                        callAPI_videos(movie_id_choice);
+                 }).done(function() {
+                        var boolReview = callAPI_reviews(movie_id_choice);  
+                 }); 
+                 $.when(callAPI_reviews(movie_id_choice)).done(function() {
+                        document.getElementById("button").disabled = false;
+                        default_choice = randFavs[index+1];
+                        console.log(`before index:${index} ${randFavs[index]}`)
+                        index+=1;
+                        console.log(`after index:${index} ${randFavs[index]}`)
+                 }); 
+                
+             };
+ 
+ 
+ 
+       
+             function callAPI_data(choice) {
+                   movie_id = choice;
+                   $.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=5d2b5802bacb09fa686512f84f6c8ca0`, function(data) {
+                       $(".title").html(`${data.original_title}`); 
+                       console.log(`${index} ${data.original_title}`)
+                              if(data.tagline !== ""){
+                              $(".tagline").html(`<b>"${data.tagline}"</b>`);
+                              }
+                              else {
+                                $(".tagline").html(``);
+                              }
+                       $(".overview").html(`<i>"${data.overview}"</i>`);
+                       $(".release").html(`<b>(${data.release_date.substr(0, 4)})</b>`);
+                       $(".rating").html(`Average Rating: <h1 class="vote">${data.vote_average} </h1>`);
+                       $('.card').addClass('shadow');
+                              if(data.vote_average >= 8.4) {
+                                $(".vote").css('color', 'green');
+                                $(".vote").css('text-shadow', '2px 2px 4px #000000');
+                              } else if (data.vote_average >= 6.8 && data.vote_average < 8.4) {
+                                $(".vote").css('color', '#D2D342');
+                                $(".vote").css('text-shadow', '2px 2px 4px #000000');  
+                              }
+                                else if (data.vote_average >= 5.5 && data.vote_average < 6.8) {
+                                $(".vote").css('color', 'orange');
+                                $(".vote").css('text-shadow', '2px 2px 4px #000000');  
+                              }
+                              else if (data.vote_average < 5) {
+                                $(".vote").css('color', 'red');
+                                $(".vote").css('text-shadow', '2px 2px 4px #000000');
+                              }
+                       $(".runtime").html(`Runtime: <p class="above">${data.runtime}min</p>`);
+                       $('.genres').html('');
+                         data.genres.forEach(function( genre) {  
+                             $('.genres').append(` | <b>${genre.name}</b>`)
+                       });     
+                 });
+             };    
+ 
+ 
+             function callAPI_images(choice) {
+                 $.get(`https://api.themoviedb.org/3/movie/${movie_id}/images?api_key=5d2b5802bacb09fa686512f84f6c8ca0&`, function(img_data) {
+                    $('.grid-container').html('');   
+                   $('#img')
+                   .attr('src', `https://image.tmdb.org/t/p/w500${img_data.posters[1].file_path}`)
+                   .attr('width', `100%`);
+             
+                                var img = document.createElement('img');
+                                    img.crossOrigin = "Anonymous";
+                                    img.setAttribute('src',  `https://image.tmdb.org/t/p/w500${img_data.posters[1].file_path}`);
+                                img.addEventListener('load', function() {
+                                    var vibrant = new Vibrant(img);
+                                    var swatches = vibrant.swatches();
+                                for (var swatch in swatches)
+                                if (swatches.hasOwnProperty(swatch) && swatches[swatch])
+                                console.log(swatch, swatches[swatch].getHex());
+                                $('.btn-default, .btn-primary, .btn, #Button').css('border',`2px solid ${swatches['DarkMuted'].getHex()}`).css('color', `${swatches['DarkMuted'].getHex()}`);
+                                $('.btn-default, .btn-primary, .btn, #Button').css('background-color', 'white')
+                                $('.grid-container').css('background-color', swatches['Vibrant'].getHex());
+                                $('#nav').css('background-color', swatches['DarkMuted'].getHex());
+                                 document.body.style.background = swatches['LightVibrant'].getHex();
+                                 document.body.style.background = 
+                                          `linear-gradient(180deg, ${swatches['Vibrant'].getHex()}, rgba(255,0,0,0) 90.71%),  
+                                          linear-gradient(180deg, ${swatches['LightVibrant'].getHex()}, rgba(255,0,0,0) 70.71%),  
+                                          linear-gradient(180deg,   ${swatches['Muted'].getHex()}, rgba(0,0,0,0) 60%), 
+                                          linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0) 100%),
+                                          linear-gradient(0deg,   rgba(0,0,0,0), rgba(0,0,0,0) 100%) `
+                                      /* Results into: Vibrant #7a4426  Muted #7b9eae DarkVibrant #348945 DarkMuted #141414 LightVibrant #f3ccb4
+                                      */
+
+                                     
+                                });
+                                
+      
+                
+                  
+                            for (var i = 0; i < img_data.posters.length; i++){
+                                posters.push(`https://image.tmdb.org/t/p/w500${img_data.posters[i].file_path}`)
+                            }
+                            var time = 1000;
+                            for (var i = 0; i < img_data.backdrops.length; i++){
+                                backdrops.push(`https://image.tmdb.org/t/p/w500${img_data.backdrops[i].file_path}`);
+                                var backdrop_image =  `<img class='shadow' src="https://image.tmdb.org/t/p/w500${img_data.backdrops[i].file_path}">`
+                                $(backdrop_image).hide().appendTo('.grid-container').delay(time).fadeIn(1000);
+                                time += 500;
+                    
+                            }
+                            if(backdrops.length <=4){
+                              $(`.grid-container img:nth-child(1)`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))').css('-webkit-mask-image','-webkit-gradient(linear, right top, righ bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
+
+                            }
+                          
+                   
+              $(`.grid-container img:nth-child(${backdrops.length})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))').css('-webkit-mask-image','-webkit-gradient(linear, right top, righ bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
+               $(`.grid-container img:nth-child(${backdrops.length -1})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
+              $(`.grid-container img:nth-child(${backdrops.length -2})`).css('mask-image','-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.99)), to(rgba(0,0,0,0)))');
+ 
+                      //  $("#images").attr('src', backdrops[1]);
+                       $("#img2 ").addClass('cover_photo');
+                      
+                 }); 
+                 
+           } 
+ 
+           function callAPI_reviews(choice) {
+                 $.get(`https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=5d2b5802bacb09fa686512f84f6c8ca0&`, function(reviews_data) {
+                   $('#reviews').html('');
+                   $('#reviews').removeClass('mask-image');
+
+                          for (var i = 0; i < reviews_data.results.length; i++){
+                            if(reviews_data.results.length > 0){
+
+                              $('#reviews').css('overflow', 'scroll');
+                              $('#reviews').addClass('mask-image');
+                              $('.display-4').show();
+
+
+                              $('#reviews').append(`
+                              <div class="card col">
+                              <div class="card-title"><b>${reviews_data.results[i].author}</b></div>
+                                  <div class="card-text"><i>"${reviews_data.results[i].content}"</i> </div>
+                                  </div>
+                              `);
+                            
+                            }   
+                            if( i ===  reviews_data.results.length -1) {
+                               $('#reviews').append(`<BR><BR><BR><BR><BR><BR><BR> <BR><div> ... </div>`)
+                            }
+                          }
+                          if(reviews_data.results.length === 0) {
+                            var back = backdrops[0];
+                            if (back === null){
+                              var back = posters[1];
+                              $('.display-4').hide();
+
+                              $('#reviews').append(`
+                              <div class="card col no-reviews-col">
+                              
+                              <b class="display-5 no-reviews-title">No Reviews</b>
+                              <img src="${back}"  class="reviews-img-content ">
+                                </div>`);
+                               $('#reviews').css('overflow', 'hidden');
+                              
+
+                            }
+                            $('.display-4').hide();
+                            $('#reviews').append(`
+                              <div class="card col no-reviews-col">
+                              
+                              <b class="display-5 no-reviews-title">No Reviews</b>
+                              <img src="${back}" class="reviews-img-content">
+                                </div>`);
+                                $('#reviews').css('min-height', '20em');
+
+                               $('#reviews').css('overflow', 'visible');
+                          }
+                 }); 
+           } 
+ 
+
+           function callAPI_videos(choice) {
+                 $.get(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=5d2b5802bacb09fa686512f84f6c8ca0&`, function(videos_data) {
+                 $('#trailer').html('');
+
+                 var vid = videos_data.results[0];
+                          if(videos_data.results.length === 0 || videos_data === null  || videos_data.results === null){
+                            $('#trailer').html('');
+                            $('.display-4 div:nth-child(2)').hide();
+                          } else {
+                            $('.display-4 div:nth-child(2)').show();
+                              $('#trailer').css('overflow', 'scroll');
+                              $('#trailer').css('min-height', '25em');
+                              $('#trailer').css('mask-image','none')
+                            $('#trailer').append(`<iframe src="https://www.youtube.com/embed/${vid.key}" frameborder="0" allow="autoplay; encrypted-media" class="shadow"allowfullscreen></iframe>`);
+
+
+                              
+                          }
+                  }); 
+             
+
+                  
+           } 
+ 
+ 
+ 
+               function callAPI_crew(choice) {
+                 $.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=5d2b5802bacb09fa686512f84f6c8ca0&`, function(crew_data) {
+                  $('.crew').html('');
+                  $('.actors').html('');
+                  $('.director_text').html(`${crew_data.crew[0].name}`);
+                  $('.producer_text').html(``);
+                        for(var i= 0; i < crew_data.crew.length; i++) {
+                            if (crew_data.crew[i]['job'] === 'Producer') {
+                                $('.producer_text').append(`${crew_data.crew[i].name}`);
+                              }
+                        }
+                        for(var x= 0; x <= 3; x++){
+                            $('.actors').append(`<span>${crew_data.cast[x].name}</span><br>`);
+                        }
+                  }); 
+           } 
+         
+           
+   
+  
+
+           
+         
+         </script>
+
+         
+      </footer>
+   </body>
+ </html>
